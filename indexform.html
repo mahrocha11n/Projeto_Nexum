@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexum - Diagnóstico Inicial</title>
+    <link rel="stylesheet" href="styleFormsInicial.css">
+</head>
+<body onload="carregarTelaDiagnostico()">
+
+    <header class="header-top">
+        <div class="logo-area">
+            <img src="LogoNexumSemFundo.png" alt="Logo Nexum" class="logo-img">
+            <h2>Nexum</h2>
+            <span class="header-sub">Diagnóstico Inicial</span>
+        </div>
+        <div class="user-profile">
+            <span class="avatar" id="avatar-letra">A</span>
+            <span class="username" id="user-nome-topo">Aluno</span>
+            <button type="button" onclick="voltarPainel()" class="btn-logout">Voltar</button>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <h1>Teste Diagnóstico Inicial</h1>
+        <p class="subtitle">Responda às questões básicas abaixo para definirmos seu nível e montar sua árvore de aprendizagem.</p>
+
+        <form id="form-diagnostico" class="card-form" onsubmit="enviarDiagnostico(event)">
+            
+            <section class="form-section">
+                <h2 class="section-title-highlight">1. Matemática</h2>
+                <p class="section-desc">Na função afim f(x) = 2x + 3, o que representa o número 2?</p>
+                <div class="sub-card">
+                    <label class="opcao-label">
+                        <input type="radio" name="q_mat" value="A" required>
+                        <span>A) O coeficiente angular (taxa de variação)</span>
+                    </label>
+                    <label class="opcao-label">
+                        <input type="radio" name="q_mat" value="B">
+                        <span>B) A raiz da função</span>
+                    </label>
+                    <label class="opcao-label">
+                        <input type="radio" name="q_mat" value="C">
+                        <span>C) O ponto onde corta o eixo y</span>
+                    </label>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2 class="section-title-highlight">2. Física</h2>
+                <p class="section-desc">No movimento retilíneo uniforme (MRU), o que acontece com a velocidade escalar ao longo do tempo?</p>
+                <div class="sub-card">
+                    <label class="opcao-label">
+                        <input type="radio" name="q_fis" value="A" required>
+                        <span>A) Aumenta de forma constante</span>
+                    </label>
+                    <label class="opcao-label">
+                        <input type="radio" name="q_fis" value="B">
+                        <span>B) Permanece constante, com aceleração nula</span>
+                    </label>
+                    <label class="opcao-label">
+                        <input type="radio" name="q_fis" value="C">
+                        <span>C) Inverte o sinal a cada segundo</span>
+                    </label>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2 class="section-title-highlight">3. Química</h2>
+                <p class="section-desc">Qual partícula subatômica define o número atômico (Z) de um elemento químico?</p>
+                <div class="sub-card">
+                    <label class="opcao-label">
+                        <input type="radio" name="q_qui" value="A" required>
+                        <span>A) Nêutrons</span>
+                    </label>
+                    <label class="opcao-label">
+                        <input type="radio" name="q_qui" value="B">
+                        <span>B) Elétrons da última camada</span>
+                    </label>
+                    <label class="opcao-label">
+                        <input type="radio" name="q_qui" value="C">
+                        <span>C) Prótons no núcleo</span>
+                    </label>
+                </div>
+            </section>
+
+            <div class="acoes-form">
+                <button type="submit" class="btn-salvar">Concluir e Montar Árvore</button>
+                <button type="button" onclick="resetarDiagnosticoTeste()" class="btn-resetar">Resetar Teste</button>
+            </div>
+        </form>
+
+    </main>
+
+    <script src="testeFormsInicial.js"></script>
+</body>
+</html>

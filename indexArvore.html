@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexum - Árvore de Aprendizagem</title>
+    <link rel="stylesheet" href="styleArvore.css">
+</head>
+<body onload="carregarArvore()">
+
+    <header class="header-top">
+        <div class="logo-area">
+            <img src="LogoNexumSemFundo.png" alt="Logo Nexum" class="logo-img">
+            <h2>Nexum</h2>
+            <span class="header-sub">Árvore de Aprendizagem</span>
+        </div>
+        <div class="user-profile">
+            <span class="avatar" id="avatar-letra">A</span>
+            <span class="username" id="user-nome-topo">Aluno</span>
+            <button type="button" onclick="refazerDiagnostico()" class="btn-logout">Refazer Diagnóstico</button>
+            <button type="button" onclick="irParaPainel()" class="btn-logout">Meu Painel</button>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="topo-arvore">
+            <div>
+                <h1>Sua Trilha de Aprendizagem</h1>
+                <p class="subtitle">Trilha personalizada gerada a partir do seu teste diagnóstico inicial.</p>
+            </div>
+            <div class="legenda-status">
+                <span class="badge concluido">Concluído</span>
+                <span class="badge disponivel">Disponível</span>
+                <span class="badge bloqueado">Bloqueado</span>
+            </div>
+        </div>
+
+        <section class="card-form">
+            <div id="trilha-container" class="trilha-arvore">
+                <!-- Os nós da árvore são renderizados via JS -->
+            </div>
+        </section>
+        <section class="card-form">
+            <div id="trilha-container" class="trilha-arvore">
+                <!-- Os nós e galhos SVG da árvore são renderizados via JS -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Caixa de aviso visual (substitui o alert padrão) -->
+    <div id="toast-nexum" class="toast-nexum hidden"></div>
+
+    <script src="scriptArvore.js"></script>
+</body>
+</html>
