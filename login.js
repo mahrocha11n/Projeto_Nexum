@@ -45,8 +45,16 @@ form.addEventListener('submit', (evento) => {
             perfil: usuario.perfil
         }));
 
-        window.location.href = 'indexArvore.html';
-    } catch (erro) {
+        const PERFIS_ALUNO = ['ALUNO_FREE', 'ALUNO_PREMIUM'];
+        
+        if (PERFIS_ALUNO.includes(usuario.perfil)) {
+            // Aluno: se já fez o diagnóstico vai para a árvore, senão para o formulário
+            const temArvore = localStorage.getItem(`arvore_nexum_${usuario.id}`);
+            window.location.href = temArvore ? 'indexArvore.html' : 'indexform.html';
+        } else {
+            // Professor e cursinho: só o painel com o perfil
+            window.location.href = 'painel.html';
+}    } catch (erro) {
         mostrarMensagem('Não foi possível acessar o armazenamento do navegador.');
     } finally {
         botao.disabled = false;
