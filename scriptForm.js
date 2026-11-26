@@ -60,9 +60,7 @@ try {
 window.location.href = "indexArvore.html";
 }
 
-function voltarPainel() {
-    window.location.href = "index.html";
-}
+
 function resetarDiagnosticoTeste() {
     document.getElementById("form-diagnostico").reset();
     try {
