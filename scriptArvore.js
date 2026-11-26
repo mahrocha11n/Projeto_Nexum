@@ -212,5 +212,5 @@ function refazerDiagnostico() {
 }
 
 function seuPerfil() {
-    window.location.href = "perfil.html";
+    window.location.href = "painel.html";
 }
