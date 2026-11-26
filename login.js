@@ -45,7 +45,7 @@ form.addEventListener('submit', (evento) => {
             perfil: usuario.perfil
         }));
 
-        window.location.href = 'painel.html';
+        window.location.href = 'indexArvore.html';
     } catch (erro) {
         mostrarMensagem('Não foi possível acessar o armazenamento do navegador.');
     } finally {
