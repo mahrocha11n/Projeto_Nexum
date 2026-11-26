@@ -4,10 +4,28 @@ const gabaritoDiagnostico = {
     q_qui: "C"
 };
 
+// A árvore é guardada por usuário: arvore_nexum_<id>
+function obterSessao() {
+    try {
+        return JSON.parse(localStorage.getItem("usuarioLogado"));
+    } catch (e) {
+        return null;
+    }
+}
+
+function chaveArvore() {
+    const sessao = obterSessao();
+    return sessao && sessao.id ? `arvore_nexum_${sessao.id}` : null;
+}
+
 function carregarTelaDiagnostico() {
-    const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado")) || {
-        nome: "Aluno Teste"
-    };
+    const usuarioLogado = obterSessao();
+
+    // Sem login não dá para salvar o diagnóstico de ninguém
+    if (!usuarioLogado || !usuarioLogado.id) {
+        window.location.href = "index.html";
+        return;
+    }
 
     document.getElementById("user-nome-topo").innerText = usuarioLogado.nome;
     document.getElementById("avatar-letra").innerText = usuarioLogado.nome.charAt(0).toUpperCase();
@@ -51,7 +69,7 @@ function enviarDiagnostico(event) {
     ];
 
 try {
-    localStorage.setItem("arvore_nexum", JSON.stringify(arvoreMontada));
+    localStorage.setItem(chaveArvore(), JSON.stringify(arvoreMontada));
 } catch (e) {
     alert("Seu navegador bloqueou o armazenamento local. Abra o site por um servidor (Live Server ou GitHub Pages) e fora de aba anônima.");
     console.error(e);
@@ -60,10 +78,12 @@ try {
 window.location.href = "indexArvore.html";
 }
 
-
+function voltarPainel() {
+    window.location.href = "index.html";
+}
 function resetarDiagnosticoTeste() {
     document.getElementById("form-diagnostico").reset();
     try {
-        localStorage.removeItem("arvore_nexum");
+        localStorage.removeItem(chaveArvore());
     } catch (e) {}
 }
