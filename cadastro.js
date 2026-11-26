@@ -1,7 +1,6 @@
 // Chaves do localStorage (as mesmas em login.js, cadastro.js e painel.js)
 const CHAVE_USUARIOS = 'nexum_usuarios';
 const CHAVE_SESSAO = 'usuarioLogado';
-const CHAVE_ARVORE = 'arvore_nexum';
 
 function lerUsuarios() {
     try {
@@ -143,7 +142,6 @@ function salvarCadastro(event) {
                 email: novoUsuario.email,
                 perfil: novoUsuario.perfil
             }));
-            localStorage.removeItem(CHAVE_ARVORE); // começa o diagnóstico do zero
 
             mostrarMensagem('Conta criada com sucesso! Vamos montar sua trilha de estudos...', true);
             setTimeout(() => { window.location.href = 'indexform.html'; }, 1500);
