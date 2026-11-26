@@ -50,7 +50,7 @@ form.addEventListener('submit', (evento) => {
         if (PERFIS_ALUNO.includes(usuario.perfil)) {
             // Aluno: se já fez o diagnóstico vai para a árvore, senão para o formulário
             const temArvore = localStorage.getItem(`arvore_nexum_${usuario.id}`);
-            window.location.href = temArvore ? 'indexArvore.html' : 'indexform.html';
+            window.location.href = temArvore ? 'indexArvore.html' : 'indexForm.html';
         } else {
             // Professor e cursinho: só o painel com o perfil
             window.location.href = 'painel.html';
