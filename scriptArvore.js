@@ -232,6 +232,6 @@ function refazerDiagnostico() {
     window.location.href = "indexform.html";
 }
 
-function irParaPainel() {
-    window.location.href = "index.html";
+function seuPerfil() {
+    window.location.href = "painel.html";
 }
