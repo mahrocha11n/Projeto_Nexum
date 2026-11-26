@@ -144,7 +144,7 @@ function salvarCadastro(event) {
             }));
 
             mostrarMensagem('Conta criada com sucesso! Vamos montar sua trilha de estudos...', true);
-            setTimeout(() => { window.location.href = 'indexform.html'; }, 1500);
+            setTimeout(() => { window.location.href = 'indexForm.html'; }, 1500);
         } else {
             // Professor e cursinho: voltam para o login, como antes
             mostrarMensagem('Conta criada com sucesso! Redirecionando para o login...', true);
