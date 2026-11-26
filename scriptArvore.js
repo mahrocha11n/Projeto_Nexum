@@ -9,15 +9,36 @@ function mostrarAviso(mensagem) {
     }, 3500);
 }
 
+// A árvore é guardada por usuário: arvore_nexum_<id>
+function obterSessao() {
+    try {
+        return JSON.parse(localStorage.getItem("usuarioLogado"));
+    } catch (e) {
+        return null;
+    }
+}
+
+function chaveArvore() {
+    const sessao = obterSessao();
+    return sessao && sessao.id ? `arvore_nexum_${sessao.id}` : null;
+}
+
 function carregarArvore() {
-    const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado")) || {
-        nome: "Aluno Teste"
-    };
+    const usuarioLogado = obterSessao();
+
+    // Sem login não há árvore para mostrar
+    if (!usuarioLogado || !usuarioLogado.id) {
+        window.location.href = "index.html";
+        return;
+    }
 
     document.getElementById("user-nome-topo").innerText = usuarioLogado.nome;
     document.getElementById("avatar-letra").innerText = usuarioLogado.nome.charAt(0).toUpperCase();
 
-    let arvoreSalva = JSON.parse(localStorage.getItem("arvore_nexum"));
+    let arvoreSalva = null;
+    try {
+        arvoreSalva = JSON.parse(localStorage.getItem(chaveArvore()));
+    } catch (e) {}
 
     // Se acessar direto sem ter feito o diagnóstico, redireciona para indexform.html
     if (!arvoreSalva || arvoreSalva.length === 0) {
@@ -207,10 +228,10 @@ function formatarTextoStatus(status) {
 }
 
 function refazerDiagnostico() {
-    localStorage.removeItem("arvore_nexum");
+    localStorage.removeItem(chaveArvore());
     window.location.href = "indexform.html";
 }
 
-function seuPerfil() {
-    window.location.href = "painel.html";
+function irParaPainel() {
+    window.location.href = "index.html";
 }
